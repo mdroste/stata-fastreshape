@@ -24,24 +24,17 @@ This program runs two to five times faster than reshape in most use cases.
 Installation
 ---------------------------------
 
-There are three options for installing fastreshape. 
+There are two options for installing fastreshape. The program is not yet available on SSC.
 
-1. The most recent iteration can always be downloaded from this Github page. 
-The following Stata code willinstall the most recent version directly from Github:
+1. The most recent version can be downloaded directly from Github.
 
+Stata code:
 ```stata
 local github "https://raw.githubusercontent.com"
 net install gtools, from(`github'/mdroste/stata-fastreshape/master/build/)
 ```
 
-2. This program is also available on SSC.
-```stata
-ssc install fastreshape
-```
-
-3. If your computer or server does not have access to the internet to run the commands
-above, you can download the .ado from here or the IDEAS archive (here) and place on your
-adopath directly.
+2. A ZIP containing the program can be downloaded and manually placed on the user's adopath.
 
 
 Usage
@@ -57,7 +50,27 @@ help fastreshape
 Benchmarks
 ---------------------------------
 
-xx
+Reshape wide benchmarks:
+
+| # i vals  | # j vals = 10  | # j vals = 100 | # j vals = 1k  |
+| --------- | -------------- | -------------- | -------------- |
+| 1k        | xx  		     | xx  		      | xx  		   |
+| 10k       | xx  		     | xx  		  	  | xx  		   |
+| 100k      | xx  		     | xx     		  | xx  		   |
+| 1m        | xx  		     | xx             | xx  		   |
+| 10m       | xx  		     | xx      	  	  | xx  		   |
+| 100m 		| xx  		     | xx  		      | xx  		   |
+
+Reshape long benchmarks:
+
+| # i vals  | # j vals = 10  | # j vals = 100 | # j vals = 1k  |
+| --------- | -------------- | -------------- | -------------- |
+| 1k        | xx  		     | xx  		      | xx  		   |
+| 10k       | xx  		     | xx  		  	  | xx  		   |
+| 100k      | xx  		     | xx     		  | xx  		   |
+| 1m        | xx  		     | xx             | xx  		   |
+| 10m       | xx  		     | xx      	  	  | xx  		   |
+| 100m 		| xx  		     | xx  		      | xx  		   |
 
 
 Acknowledgements
