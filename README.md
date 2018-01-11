@@ -90,5 +90,5 @@ I would like to get around to addressing the following items:
 License
 ---------------------------------
 
-fastreshape is [MIT-licensed](https://github.com/mcaceresb/stata-gtools/blob/master/LICENSE).
+fastreshape is [MIT-licensed](https://github.com/mdroste/stata-fastreshape/blob/master/LICENSE).
 
