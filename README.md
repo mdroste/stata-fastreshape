@@ -64,7 +64,7 @@ Remarks
 Acknowledgements
 ----------------
 
-* This program owes its existence to the discussion provided by Robert Picard, Daniel Feenberg and Paul Von Hippel at Statalist.
+This program was inspired by [this discussion](https://www.statalist.org/forums/forum/general-stata-discussion/general/1338350-making-reshape-faster/) provided by Robert Picard, Daniel Feenberg and Paul Von Hippel on Statalist.
 
   
 Todo
