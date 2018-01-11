@@ -17,6 +17,7 @@ Overview
 ---------------------------------
 
 fastreshape is an enhanced version of the built-in reshape program in Stata. 
+
 This program runs two to five times faster than reshape in most use cases.
 
 
