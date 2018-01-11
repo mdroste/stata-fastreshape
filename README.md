@@ -4,10 +4,9 @@ fastreshape.ado
 [Overview](#overview)
 | [Installation](#installation)
 | [Usage](#usage)
-| [FAQs](#faqs)
 | [Benchmarks](#remarks)
+| [To-Do](#todo)
 | [Acknowledgements](#acknowledgements)
-| [Remarks](#remarks)
 | [License](#license)
 
 More efficient implementation of reshape in Stata
@@ -22,7 +21,7 @@ This program runs two to five times faster than reshape in most use cases.
 
 
 Installation
-------------
+---------------------------------
 
 There are three options for installing fastreshape. 
 
@@ -32,8 +31,6 @@ The following Stata code willinstall the most recent version directly from Githu
 ```stata
 local github "https://raw.githubusercontent.com"
 net install gtools, from(`github'/mdroste/stata-fastreshape/master/build/)
-* adoupdate, update
-* ado uninstall gtools
 ```
 
 2. This program is also available on SSC.
@@ -47,7 +44,7 @@ adopath directly.
 
 
 Usage
-------------
+---------------------------------
 
 The syntax for usage is exactly the same as reshape. 
 
@@ -56,27 +53,28 @@ Internal documentation (a help file) can be accessed within Stata:
 help fastreshape
 ```
 
-Remarks
--------
+Benchmarks
+---------------------------------
 
+xx
 
 
 Acknowledgements
-----------------
+---------------------------------
 
 This program was inspired by [this discussion](https://www.statalist.org/forums/forum/general-stata-discussion/general/1338350-making-reshape-faster/) provided by Robert Picard, Daniel Feenberg and Paul Von Hippel on Statalist.
 
   
 Todo
-----
+---------------------------------
 
-Roadmap to 1.0
+I would like to get around to addressing the following items:
 
 - Option when the initial dataset is a balanced panel 
 
 
 License
--------
+---------------------------------
 
 fastreshape is [MIT-licensed](https://github.com/mcaceresb/stata-gtools/blob/master/LICENSE).
 
