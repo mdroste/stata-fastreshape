@@ -12,7 +12,7 @@ fastreshape.ado
 
 More efficient implementation of reshape in Stata
 
-`version 0.1 20180111
+`version 0.1 2018jan11`
 
 Overview
 ---------------------------------
