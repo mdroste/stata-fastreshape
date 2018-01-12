@@ -21,6 +21,8 @@ fastreshape is an enhanced version of the built-in reshape program in Stata.
 
 This program runs 1.5 to 5 times faster than reshape in most use cases, particularly when the number of logical observations (i) is large relative to the number of sub-observations (j).
 
+In addition, fastreshape is slightly more flexible with input types than reshape. The user no longer needs to specify when the variable indexing the sub-observation (j) is a string.
+
 
 Installation
 ---------------------------------
