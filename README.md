@@ -5,7 +5,7 @@ fastreshape
 [Overview](#overview)
 | [Installation](#installation)
 | [Usage](#usage)
-| [Benchmarks](#remarks)
+| [Benchmarks](#benchmarks)
 | [To-Do](#todo)
 | [Acknowledgements](#acknowledgements)
 | [License](#license)
@@ -62,7 +62,7 @@ Reshape wide benchmarks:
 | --------- | -------------- | -------------- | -------------- |
 | 1k        | 2.5  		     | 1.4 		  	  | 1.3  		   |
 | 10k       | 2.6  		     | 1.6 		  	  | 1.5  		   |
-| 100k      | 4.0  		     | 1.9     		  | xx  		   |
+| 100k      | 3.5  		     | 1.8     		  | xx  		   |
 | 1m        | 5.9  		     | xx             | xx  		   |
 
 Reshape long benchmarks:
@@ -71,7 +71,7 @@ Reshape long benchmarks:
 | --------- | -------------- | -------------- | -------------- |
 | 1k        | 1.2  		     | 1.5 		  	  | 1.4  		   |
 | 10k       | 2.0  		     | 2.1 		      | 3.9  		   |
-| 100k      | 2.3  		     | 4.3     		  | xx  		   |
+| 100k      | 2.1  		     | 3.9     		  | xx  		   |
 | 1m        | 2.6  		     | xx             | xx  		   |
 
   
@@ -80,9 +80,8 @@ Todo
 
 I would like to get around to addressing the following items:
 
-- [ ] Option to leverage [gtools](https://github.com/mcaceresb/stata-gtools/) for modestly improved performance (glevelsof)
-- [ ] Option when initial dataset structure is known (e.g. balanced panel) for improved performance
-- [ ] Mata rewrite
+- [ ] Option to leverage [gtools](https://github.com/mcaceresb/stata-gtools/)
+- [ ] Option when initial dataset structure is known (e.g. balanced panel)
 
 A port of this program in C would yield a significant increase in performance; I have no plans to do that in the near future.
 
