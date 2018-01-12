@@ -1,6 +1,6 @@
 
-fastreshape.ado 
-===================================
+fastreshape
+=======================
 
 [Overview](#overview)
 | [Installation](#installation)
@@ -41,11 +41,16 @@ net install fastreshape, from(`github'/mdroste/stata-fastreshape/master/build/)
 Usage
 ---------------------------------
 
-The syntax for usage is exactly the same as reshape. 
+The syntax, usage, and output is exactly the same as reshape. 
 
 Internal documentation (a help file) can be accessed within Stata:
 ```stata
 help fastreshape
+```
+
+More helpful documentation for reshaping can be found in the reshape documentation:
+```stata
+help reshape
 ```
 
 Benchmarks
@@ -53,25 +58,21 @@ Benchmarks
 
 Reshape wide benchmarks:
 
-| # i vals  | # j vals = 10  | # j vals = 100 | # j vals = 1k  |
+| # i vals  | # j vals = 10  | # j vals = 50 | # j vals = 100  |
 | --------- | -------------- | -------------- | -------------- |
-| 1k        | xx  		     | xx  		      | xx  		   |
-| 10k       | xx  		     | xx  		  	  | xx  		   |
-| 100k      | xx  		     | xx     		  | xx  		   |
-| 1m        | xx  		     | xx             | xx  		   |
-| 10m       | xx  		     | xx      	  	  | xx  		   |
-| 100m 		| xx  		     | xx  		      | xx  		   |
+| 1k        | 2.5  		     | 1.4 		  	  | 1.3  		   |
+| 10k       | 2.6  		     | 1.6 		  	  | 1.5  		   |
+| 100k      | 4.0  		     | 1.9     		  | xx  		   |
+| 1m        | 5.9  		     | xx             | xx  		   |
 
 Reshape long benchmarks:
 
-| # i vals  | # j vals = 10  | # j vals = 100 | # j vals = 1k  |
+| # i vals  | # j vals = 10  | # j vals = 50  | # j vals = 100 |
 | --------- | -------------- | -------------- | -------------- |
-| 1k        | xx  		     | xx  		      | xx  		   |
-| 10k       | xx  		     | xx  		  	  | xx  		   |
-| 100k      | xx  		     | xx     		  | xx  		   |
-| 1m        | xx  		     | xx             | xx  		   |
-| 10m       | xx  		     | xx      	  	  | xx  		   |
-| 100m 		| xx  		     | xx  		      | xx  		   |
+| 1k        | 1.2  		     | 1.5 		  	  | 1.4  		   |
+| 10k       | 2.0  		     | 2.1 		      | 3.9  		   |
+| 100k      | 2.3  		     | 4.3     		  | xx  		   |
+| 1m        | 2.6  		     | xx             | xx  		   |
 
 
 Acknowledgements
@@ -85,11 +86,11 @@ Todo
 
 I would like to get around to addressing the following items:
 
-- Option when the initial dataset is a balanced panel 
+- Option to leverage [gtools](https://github.com/mcaceresb/stata-gtools/) for modestly improved performance (glevelsof)
 
 
 License
 ---------------------------------
 
-fastreshape is [MIT-licensed](https://github.com/mdroste/stata-fastreshape/blob/master/LICENSE).
+fastreshape is [MIT-licensed](https://github.com/mcaceresb/stata-gtools/blob/master/LICENSE).
 
