@@ -74,19 +74,23 @@ Reshape long benchmarks:
 | 100k      | 2.3  		     | 4.3     		  | xx  		   |
 | 1m        | 2.6  		     | xx             | xx  		   |
 
-
-Acknowledgements
----------------------------------
-
-This program was inspired by [this discussion](https://www.statalist.org/forums/forum/general-stata-discussion/general/1338350-making-reshape-faster/) provided by Robert Picard, Daniel Feenberg and Paul Von Hippel on Statalist.
-
   
 Todo
 ---------------------------------
 
 I would like to get around to addressing the following items:
 
-- Option to leverage [gtools](https://github.com/mcaceresb/stata-gtools/) for modestly improved performance (glevelsof)
+- [ ] Option to leverage [gtools](https://github.com/mcaceresb/stata-gtools/) for modestly improved performance (glevelsof)
+- [ ] Option when initial dataset structure is known (e.g. balanced panel) for improved performance
+- [ ] Mata rewrite
+
+A port of this program in C would yield a significant increase in performance; I have no plans to do that in the near future.
+
+
+Acknowledgements
+---------------------------------
+
+This program was inspired by [this discussion](https://www.statalist.org/forums/forum/general-stata-discussion/general/1338350-making-reshape-faster/) provided by Robert Picard, Daniel Feenberg and Paul Von Hippel on Statalist.
 
 
 License
