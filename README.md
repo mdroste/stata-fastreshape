@@ -21,17 +21,14 @@ fastreshape is an enhanced version of the built-in reshape program in Stata.
 
 This program runs 1.5 to 5 times faster than reshape in most use cases, particularly when the number of logical observations (i) is large relative to the number of sub-observations (j).
 
-In addition, fastreshape is slightly more flexible with input types than reshape. The user no longer needs to specify when the variable indexing the sub-observation (j) is a string.
-
 
 Installation
 ---------------------------------
 
 There are two options for installing fastreshape. The program is not yet available on SSC.
 
-1. The most recent version can be downloaded directly from Github.
+1. The most recent version can be installed from Github with the following Stata commands:
 
-Stata code:
 ```stata
 local github "https://raw.githubusercontent.com"
 net install fastreshape, from(`github'/mdroste/stata-fastreshape/master/build/)
