@@ -1,6 +1,5 @@
-
 fastreshape
-=======================
+=================================
 
 [Overview](#overview)
 | [Installation](#installation)
@@ -43,14 +42,14 @@ Usage
 The syntax, usage, and data output is mostly identical to reshape, with a few exceptions:
 
 1. By default, fastreshape does not return additional output in macros. Support for this functionality is not yet included (see to-do).
-2. Fastreshape does not allow you to diagnose 'problem observations' with the -fastreshape error' command ex post. Support for this functionality may be included at a later date, but is not viewed as particularly important at this time.
+2. Fastreshape does not support highlighting problem observations with the fastreshape error command ex post. Support for this functionality may be included at a later date, but is not viewed as particularly important at this time.
 
-Internal documentation for fastreshape can be accessed within Stata:
+Documentation can be accessed within Stata:
 ```stata
 help fastreshape
 ```
 
-More helpful usage notes on the reshaping procedure can be found in the official Stata documentation for reshape:
+Usage notes on the reshaping procedure can be found in the official Stata documentation for reshape:
 ```stata
 help reshape
 ```
