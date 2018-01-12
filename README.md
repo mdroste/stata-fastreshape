@@ -1,5 +1,6 @@
 
 fastreshape.ado 
+===================================
 
 [Overview](#overview)
 | [Installation](#installation)
@@ -31,7 +32,7 @@ There are two options for installing fastreshape. The program is not yet availab
 Stata code:
 ```stata
 local github "https://raw.githubusercontent.com"
-net install gtools, from(`github'/mdroste/stata-fastreshape/master/build/)
+net install fastreshape, from(`github'/mdroste/stata-fastreshape/master/build/)
 ```
 
 2. A ZIP containing the program can be downloaded and manually placed on the user's adopath.
