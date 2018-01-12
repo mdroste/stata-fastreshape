@@ -19,7 +19,7 @@ Overview
 
 fastreshape is an enhanced version of the built-in reshape program in Stata. 
 
-This program runs two to five times faster than reshape in most use cases.
+This program runs 1.5 to 5 times faster than reshape in most use cases, particularly when the number of i values is large relative to the number of j values.
 
 
 Installation
@@ -41,14 +41,17 @@ net install fastreshape, from(`github'/mdroste/stata-fastreshape/master/build/)
 Usage
 ---------------------------------
 
-The syntax, usage, and output is exactly the same as reshape. 
+The syntax, usage, and data output is mostly identical to reshape, with a few exceptions:
 
-Internal documentation (a help file) can be accessed within Stata:
+1. By default, fastreshape does not return additional output in macros. Support for this functionality is not yet included (see to-do).
+2. Fastreshape does not allow you to diagnose 'problem observations' with the -fastreshape error' command ex post. Support for this functionality may be included at a later date, but is not viewed as particularly important at this time.
+
+Internal documentation for fastreshape can be accessed within Stata:
 ```stata
 help fastreshape
 ```
 
-More helpful documentation for reshaping can be found in the reshape documentation:
+More helpful usage notes on the reshaping procedure can be found in the official Stata documentation for reshape:
 ```stata
 help reshape
 ```
@@ -78,10 +81,12 @@ Reshape long benchmarks:
 Todo
 ---------------------------------
 
-I would like to get around to addressing the following items:
+I would like to address the following items:
 
+- [ ] Option to return additional information in scalars with optional [return] argument.
 - [ ] Option to leverage [gtools](https://github.com/mcaceresb/stata-gtools/)
 - [ ] Option when initial dataset structure is known (e.g. balanced panel)
+- [ ] More informative dialogue 
 
 A port of this program in C would yield a significant increase in performance; I have no plans to do that in the near future.
 
