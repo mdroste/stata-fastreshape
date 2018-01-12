@@ -81,12 +81,11 @@ Reshape long benchmarks:
 Todo
 ---------------------------------
 
-I would like to address the following items:
+The following items will be addressed in the near future:
 
-- [ ] Option to return additional information in scalars with optional [return] argument.
-- [ ] Option to leverage [gtools](https://github.com/mcaceresb/stata-gtools/)
-- [ ] Option when initial dataset structure is known (e.g. balanced panel)
-- [ ] More informative dialogue 
+- [ ] Return additional information in scalars with optional argument.
+- [ ] Leverage [gtools](https://github.com/mcaceresb/stata-gtools/) to speed up processing within-group with an optional argument.
+- [ ] More error dialogue informative dialogue 
 
 A port of this program in C would yield a significant increase in performance; I have no plans to do that in the near future.
 
