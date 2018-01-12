@@ -83,7 +83,7 @@ The following items will be addressed in the near future:
 
 - [ ] Return additional information in scalars with optional argument.
 - [ ] Leverage [gtools](https://github.com/mcaceresb/stata-gtools/) to speed up processing within-group with an optional argument.
-- [ ] More error dialogue informative dialogue 
+- [ ] Return more informative error dialogue
 
 A port of this program in C would yield a significant increase in performance; I have no plans to do that in the near future.
 
