@@ -12,20 +12,19 @@ fastreshape
 
 More efficient implementation of reshape in Stata
 
-`version 0.1 2018jan17`
+`version 0.2 17jan2018
 
 
 Overview
 ---------------------------------
 
-Fastreshape is an enhanced version of the -reshape- program in Stata that performs well on large datasets. 
-Reshape is an invaluable tool for working with panel data, but it is known to perform poorly on large datasets (see [this benchmark](https://github.com/matthieugomez/benchmark-stata-r) 
-and [this discussion](https://www.statalist.org/forums/forum/general-stata-discussion/general/1338350-making-reshape-faster/)).  
-When working with large datasets, reshaping is often the slowest command, potentially adding hours to runtime.
+Fastreshape is an efficient implementation of the reshape procedure in Stata.
 
-Fastreshape preserves the syntax and output of the original reshape command, but runs 2 to 15 times faster in most use cases. 
-This is particularly true for wide-to-long reshapes where the number of distinct sub-observations (j) is large. 
-Fastreshape also performs modestly better than reshape on long-to-wide reshapes when the number of distinct logical observations (i) is large relative to the number of distinct sub-observations (j).
+Although the default reshape program in Stata is incredibly useful for working with panel data, it is known to perform poorly on large datasets (see [this benchmark](https://github.com/matthieugomez/benchmark-stata-r) 
+and [this discussion](https://www.statalist.org/forums/forum/general-stata-discussion/general/1338350-making-reshape-faster/)).
+
+Fastreshape runs 2 to 15 times faster than reshape in most use cases, particularly for wide-to-long reshapes where the number of distinct sub-observations (j) is large. 
+Fastreshape also performs modestly better than reshape on wide datasets when the number of distinct logical observations (i) is large relative to the number of distinct sub-observations (j).
 
 
 Installation
