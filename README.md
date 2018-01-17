@@ -12,7 +12,7 @@ fastreshape
 
 More efficient implementation of reshape in Stata
 
-`version 0.2 17jan2018
+`version 0.2 17jan2018`
 
 
 Overview
