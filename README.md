@@ -49,11 +49,12 @@ The syntax, usage, and data output of fastreshape is virtually identical to resh
 
 1. Fastreshape does not return useful information in macro objects. Support for this functionality is planned soon (see todo).
 2. Fastreshape does not support highlighting problem observations with the fastreshape error command ex post. Support for this functionality may be included at a later date, but is not viewed as particularly important at this time.
-3. Fastreshape does not support the 'implicit' syntax of -reshape- that can be used when reshaping two or more times. Support for this functionality is planned soon (see todo).
+3. Fastreshape does not support the atwl(char) argument. Use the @ character instead. Support for this functionality is a low priority (see todo).
 
 Notably, there is now an optional argument called -fast-. The default behavior of fastreshape is to sort the dataset by i and j for fastreshape long,
  and to sort the dataset by i for fastreshape wide, which matches exactly the output produced by reshape. In many cases, however, there is no reason for sorting on these variables. The fast option omits this sorting step and therefore speeds up runtime by a significant amount.
-Documentation for fastreshape can be accessed within Stata:
+
+ Documentation for fastreshape can be accessed within Stata:
 ```stata
 help fastreshape
 ```
@@ -75,9 +76,10 @@ Todo
 
 The following items will be addressed soon:
 
-- [ ] Return additional information in scalars with optional argument.
-- [ ] Support for implicit reshape syntax for repeated reshapes.
+- [x] Return additional information in scalars with optional argument.
+- [x] Support for implicit reshape syntax for repeated reshapes.
 - [ ] Return more informative error dialogue.
+- [ ] Support for the atwl(char) argument.
 
 A port of this program in C would yield a significant increase in performance; I have no plans to do that in the near future.
 
