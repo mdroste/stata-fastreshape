@@ -68,7 +68,8 @@ help reshape
 Benchmarks
 ---------------------------------
 
-XX
+![fastreshape benchmark](benchmarks/fastreshape_benchmark.png "fastreshape benchmark")
+
 
   
 Todo
