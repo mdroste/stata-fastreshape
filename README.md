@@ -38,7 +38,7 @@ There are two options for installing fastreshape. The program is not yet availab
 
 ```stata
 local github "https://raw.githubusercontent.com"
-net install fastreshape, from(`github'/mdroste/stata-fastreshape/master/build/)
+net install fastreshape, from(`github'/mdroste/stata-fastreshape/master/)
 ```
 
 2. A ZIP containing the program can be downloaded and manually placed on the user's adopath.
