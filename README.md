@@ -23,9 +23,11 @@ Fastreshape is an efficient implementation of the reshape procedure in Stata.
 Although the default reshape program in Stata is incredibly useful for working with panel data, it is known to perform poorly on large datasets (see [this benchmark](https://github.com/matthieugomez/benchmark-stata-r) 
 and [this discussion](https://www.statalist.org/forums/forum/general-stata-discussion/general/1338350-making-reshape-faster/)).
 
-Fastreshape runs 2 to 15 times faster than reshape in most use cases, particularly for wide-to-long reshapes where the number of distinct sub-observations (j) is large. 
-Fastreshape also performs modestly better than reshape on wide datasets when the number of distinct logical observations (i) is large relative to the number of distinct sub-observations (j).
+Fastreshape runs several times faster than reshape in most use cases. 
+As described in the [benchmarks](#benchmarks) section below, wide-to-long reshapes are between 2 and 15 times faster with fastreshape, with the largest improvements when the dataset is big. 
+Similarly, long-to-wide reshapes are between 1.5 and 5 times faster with fastreshape, particularly when the number of logical observations (indexed by i) is large relative to the number of sub-observations (indexed by j).
 
+Although fastreshape was built from scratch, usage and output are deliberately structured to be virtually identical to reshape.
 
 Installation
 ---------------------------------
@@ -47,7 +49,7 @@ Usage
 
 The syntax, usage, and data output of fastreshape is virtually identical to reshape, with a few exceptions:
 
-1. Fastreshape does not return useful information in macro objects. Support for this functionality is planned soon (see todo).
+1. Fastreshape does not support subsetting the sub-observation variables (j) with a list of values (e.g. specifying j(year 2001 2003 2004)). This can easily be done prior to reshape with a keep command, so it is a low priority.
 2. Fastreshape does not support highlighting problem observations with the fastreshape error command ex post. Support for this functionality may be included at a later date, but is not viewed as particularly important at this time.
 3. Fastreshape does not support the atwl(char) argument. Use the @ character instead. Support for this functionality is a low priority (see todo).
 
@@ -63,7 +65,6 @@ Usage notes on the reshaping procedure can be found in the documentation for res
 ```stata
 help reshape
 ```
-
 
 Benchmarks
 ---------------------------------
