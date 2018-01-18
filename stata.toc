@@ -1,0 +1,3 @@
+v 0.2
+d Michael Droste, thedroste@gmail.com
+p 'fastreshape': efficient implementation of reshape in Stata
