@@ -1,0 +1,6 @@
+v 0.2
+d
+d 'fastreshape': efficient implementation of reshape in Stata
+d
+f fastreshape.ado
+f fastreshape.sthlp
