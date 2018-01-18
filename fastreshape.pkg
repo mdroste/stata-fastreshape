@@ -2,5 +2,7 @@ v 0.2
 d
 d 'fastreshape': efficient implementation of reshape in Stata
 d
+d Distribution-Date: 20180118
+d
 f fastreshape.ado
 f fastreshape.sthlp
