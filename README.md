@@ -95,5 +95,5 @@ This program was inspired by [this Statalist discussion](https://www.statalist.o
 License
 ---------------------------------
 
-fastreshape is [MIT-licensed](https://github.com/mdroste/stata-fastreshape/LICENSE).
+fastreshape is [MIT-licensed](https://github.com/mdroste/stata-fastreshape/blob/master/LICENSE).
 
