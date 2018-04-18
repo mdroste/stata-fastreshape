@@ -36,6 +36,22 @@ if "`rtype'"!="wide" & "`rtype'"!="long" {
 	exit 1
 }
 
+* Handle implicit syntax
+if "`stubs'"=="" & "`i'"=="" & "`j'"=="" {
+	local m1: char  _dta[ReS_stubs]
+	local m2: char  _dta[ReS_i]
+	local m3: char  _dta[ReS_j]
+	if "`m1'"=="" & "`m2'"=="" & "`m3'"=="" {
+		di as error "Error: data has not been reshaped yet. The implicit syntax only works if you have reshaped the data in memory already."
+		exit 1
+	}
+	else {
+		local stubs `m1'
+		local i `m2'
+		local j `m3'
+	}
+}
+
 * Make sure i variable exists
 if "`i'"!="" {
 	capture confirm variable `i'
@@ -80,6 +96,7 @@ if "`rtype'"=="long" {
 		di as error "Error: i does not uniquely identify observations, which it should when reshaping long."
 		exit 1
 	}
+	drop `ni'
 }
 
 * Check type of j, set string option if string
@@ -184,7 +201,7 @@ if "`rtype'"=="wide" {
 	
 	* XX need to identify all variables in dataset NOT i, j, stub
 	if "`verbose'"!="" timer on 2
-	di "stub_vars: `stub_vars' `i' `j'"
+	//di "stub_vars: `stub_vars' `i' `j'"
 	qui ds `stub_vars' `i' `j', not
 	if "`verbose'"!="" timer off 2
 	
@@ -304,7 +321,7 @@ if "`rtype'"=="long" {
 		local c = "`v'"
 	    local wildcard_pos = strpos("`c'","@")
 		local string_len = strlen("`c'")
-		di "pos: `wildcard_pos', len: `string_len'"
+		//di "pos: `wildcard_pos', len: `string_len'"
 		if `wildcard_pos'>0 {
 			* When @ symbol is in the middle of the string
 			if `wildcard_pos'>1 & `wildcard_pos'<`string_len' {
@@ -321,7 +338,6 @@ if "`rtype'"=="long" {
 			}
 			* When @ symbol is at the beginning of the string
 			if `wildcard_pos'==1 {
-				di "DING"
 				local c1 = "*" + substr("`c'",`wildcard_pos'+1,.)
 				local c2 = substr("`c'",`wildcard_pos'+1,.) + "*"
 				local c3 = substr("`c'",`wildcard_pos'+1,.)
@@ -334,7 +350,7 @@ if "`rtype'"=="long" {
 		}
 	}
 	local stubs `stubs2'
-	
+	//di "debug: stubs = `stubs'"
 	
 	* Store distinct values of j across all stubs
 	if "`verbose'"!="" timer on 1
@@ -350,6 +366,7 @@ if "`rtype'"=="long" {
 		}
 		local all_stubs `all_stubs' `stub_vars_raw'
 	} 
+	//di "debug: stub_vars_raw = `stub_vars_raw'"
 	
 	* Store unique values of j variable (non-string)
 	if "`string'"=="" {
@@ -410,7 +427,11 @@ if "`rtype'"=="long" {
 		if "`genlong'"=="1" gen `s'`c' = .
 		if "`string'"=="" gen `j' = `c'
 		else gen `j' = "`c'"
-		rename *`c' *
+		di "c = `c', s = `s', j = `j'"
+		foreach s in `stubs' {
+			cap rename `s'`c' `s'
+		}
+		di "after"
 		tempfile temp`z'
 		qui save `temp`z'', replace
 	}
