@@ -32,7 +32,7 @@ Although fastreshape was built from scratch, usage and output are deliberately s
 Installation
 ---------------------------------
 
-There are two options for installing fastreshape. The program is not yet available on SSC.
+There are three options for installing fastreshape.
 
 1. The most recent version can be installed from Github with the following Stata commands:
 
@@ -41,7 +41,12 @@ local github "https://raw.githubusercontent.com"
 net install fastreshape, from(`github'/mdroste/stata-fastreshape/master/)
 ```
 
-2. A ZIP containing the program can be downloaded and manually placed on the user's adopath.
+2. A recent version can be installed from the SSC repository with the following Stata command:
+```stata
+ssc install fastreshape
+```
+
+3. A ZIP containing the program can be downloaded and manually placed on the user's adopath.
 
 
 Usage
