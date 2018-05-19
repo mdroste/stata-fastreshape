@@ -12,18 +12,18 @@ fastreshape
 
 More efficient implementation of reshape in Stata
 
-`version 0.2 18apr2018`
+`version 0.3 18may2018`
 
 
 Overview
 ---------------------------------
 
-Fastreshape is an efficient implementation of the reshape procedure in Stata.
+fastreshape is an efficient implementation of the reshape procedure in Stata.
 
-Although the default reshape program in Stata is incredibly useful for working with panel data, it is known to perform poorly on large datasets (see [this benchmark](https://github.com/matthieugomez/benchmark-stata-r) 
+Although the built-in reshape procedure in Stata is invaluable for working with panel data, it is known to perform poorly on large datasets (see [this benchmark](https://github.com/matthieugomez/benchmark-stata-r) 
 and [this discussion](https://www.statalist.org/forums/forum/general-stata-discussion/general/1338350-making-reshape-faster/)).
 
-Fastreshape runs several times faster than reshape in most use cases. 
+fastreshape runs several times faster than reshape in most use cases. 
 As described in the [benchmarks](#benchmarks) section below, wide-to-long reshapes are between 2 and 15 times faster with fastreshape, with the largest improvements when the dataset is big. 
 Similarly, long-to-wide reshapes are between 1.5 and 5 times faster with fastreshape, particularly when the number of logical observations (indexed by i) is large relative to the number of sub-observations (indexed by j).
 
@@ -54,19 +54,19 @@ Usage
 
 The syntax, usage, and data output of fastreshape is virtually identical to reshape, with a few exceptions:
 
-1. Fastreshape does not support subsetting the sub-observation variables (j) with a list of values (e.g. specifying j(year 2001 2003 2004)). This can easily be done prior to reshape with a keep command, so it is a low priority.
-2. Fastreshape does not support highlighting problem observations with the fastreshape error command ex post. Support for this functionality may be included at a later date, but is not viewed as particularly important at this time.
-3. Fastreshape does not support the atwl(char) argument. Use the @ character instead. Support for this functionality is a low priority (see todo).
+1. Fastreshape does not support subsetting the sub-observation variables (j) with a list of values (e.g. specifying j(year 2001 2003 2004)).
+2. Fastreshape does not support highlighting problem observations with the fastreshape error command ex post
+3. Fastreshape does not support the atwl(char) argument. Use the @ character instead.
 
 Notably, there is now an optional argument called -fast-. The default behavior of fastreshape is to sort the dataset by i and j for fastreshape long,
  and to sort the dataset by i for fastreshape wide, which matches exactly the output produced by reshape. In many cases, however, there is no reason for sorting on these variables. The fast option omits this sorting step and therefore speeds up runtime by a significant amount.
 
- Documentation for fastreshape can be accessed within Stata:
+Internal documentation for fastreshape is available within Stata after installation:
 ```stata
 help fastreshape
 ```
 
-Usage notes on the reshaping procedure can be found in the documentation for reshape:
+More detailed usage notes on the reshaping procedure can be found in the Stata documentation for reshape:
 ```stata
 help reshape
 ```

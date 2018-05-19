@@ -1,7 +1,7 @@
 *===============================================================================
 * Program: fastreshape.ado
 * Purpose: Quickly reshape datasets in Stata
-* Version: 0.2 (2018/01/13)
+* Version: 0.3 (2018/05/18)
 * Author:  Michael Droste
 * Website: http://www.github.com/mdroste/stata-fastreshape
 *===============================================================================
@@ -111,8 +111,6 @@ if _rc==0 {
 *-------------------------------------------------------------------------------
 * Prep for reshape (long and wide)
 *-------------------------------------------------------------------------------
-
-
 
 *-------------------------------------------------------------------------------
 * Wide reshape
@@ -308,7 +306,6 @@ if "`rtype'"=="wide" {
 
 *-------------------------------------------------------------------------------
 * Long reshape
-* Kudos to http://www.nber.org/stata/efficient/reshape.html
 *-------------------------------------------------------------------------------
 
 if "`rtype'"=="long" {
@@ -321,7 +318,6 @@ if "`rtype'"=="long" {
 		local c = "`v'"
 	    local wildcard_pos = strpos("`c'","@")
 		local string_len = strlen("`c'")
-		//di "pos: `wildcard_pos', len: `string_len'"
 		if `wildcard_pos'>0 {
 			* When @ symbol is in the middle of the string
 			if `wildcard_pos'>1 & `wildcard_pos'<`string_len' {
@@ -350,7 +346,6 @@ if "`rtype'"=="long" {
 		}
 	}
 	local stubs `stubs2'
-	//di "debug: stubs = `stubs'"
 	
 	* Store distinct values of j across all stubs
 	if "`verbose'"!="" timer on 1
@@ -366,7 +361,6 @@ if "`rtype'"=="long" {
 		}
 		local all_stubs `all_stubs' `stub_vars_raw'
 	} 
-	//di "debug: stub_vars_raw = `stub_vars_raw'"
 	
 	* Store unique values of j variable (non-string)
 	if "`string'"=="" {
@@ -421,17 +415,17 @@ if "`rtype'"=="long" {
 				di as text "(note: `s'`c' not found)"
 				local genlong = 1
 			}
-			local allstubs `allstubs' `s'`c'
+			else {
+				local allstubs `allstubs' `s'`c'
+			}
 		}
 		use `i' `allstubs' `non_stubs' using `tmp_long', clear
-		if "`genlong'"=="1" gen `s'`c' = .
+		//if "`genlong'"=="1" gen `s'`c' = .
 		if "`string'"=="" gen `j' = `c'
 		else gen `j' = "`c'"
-		di "c = `c', s = `s', j = `j'"
 		foreach s in `stubs' {
 			cap rename `s'`c' `s'
 		}
-		di "after"
 		tempfile temp`z'
 		qui save `temp`z'', replace
 	}
@@ -517,7 +511,7 @@ if "`rtype'"=="long" {
 }
 
 *-------------------------------------------------------------------------------
-* XX optional: return objects
+* XX work in progress: return useful objects
 *-------------------------------------------------------------------------------
 
 char _dta[ReS_rtype]     `rtype'
