@@ -235,7 +235,8 @@ if "`rtype'"=="wide" {
 	if "`verbose'"!="" timer on 4
 	qui use `temp_1', clear
 	forval k=2/`num_j' {
-		cap merge 1:1 `i' using `temp_`k'', nogen
+		*cap merge 1:1 `i' using `temp_`k'', nogen
+		cap join , from(`temp_`k') by(`i') uniquemaster
 		if _rc!=0 {
 			noi di as error "Error: i (`i') not unique within j (`j')."
 			exit 1
