@@ -8,7 +8,7 @@
 
 program define fastreshape
 version 13.1
-syntax anything, [i(string asis) j(string asis) robust fast string verbose]
+syntax anything, [i(string asis) j(string asis) robust fast string verbose drop_empty]
 
 *-------------------------------------------------------------------------------
 * Setup
@@ -427,6 +427,31 @@ if "`rtype'"=="long" {
 		foreach s in `stubs' {
 			cap rename `s'`c' `s'
 		}
+		* prepare drop
+		local drop "qui drop if "
+		local counter = 0
+		local zstubs ""
+		foreach s in `stubs' {
+			cap ds `s'
+			if _rc==0 {
+				local zstubs "`zstubs' `s'"
+			}
+		}
+		qui ds `zstubs', has(type string)
+		local sstubs = r(varlist)
+		foreach s in `sstubs' {
+			local ++counter
+			if `counter' > 1 local drop "`drop' & "
+			local drop `"`drop' `s' == "" "'
+		}
+		qui ds `zstubs', has(type numeric)
+		local nstubs = r(varlist)
+		foreach s in `nstubs' {
+			local ++counter
+			if `counter' > 1 local drop "`drop' & "
+			local drop `"`drop' missing(`s') "'
+		}
+		if "`drop_empty'" != "" `drop'
 		tempfile temp`z'
 		qui save `temp`z'', replace
 	}
