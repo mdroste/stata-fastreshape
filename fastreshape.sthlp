@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 0.2  17jan2018}{...}
+{* *! version 0.4  24jan2021}{...}
 {vieweralsosee "fastreshape" "help fastreshape"}{...}
 {viewerjumpto "Syntax" "fastreshape##syntax"}{...}
 {viewerjumpto "Description" "fastreshape##description"}{...}
