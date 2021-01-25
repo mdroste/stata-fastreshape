@@ -35,7 +35,7 @@ There are three options for installing fastreshape.
 1. The most recent version can be installed from Github with the following Stata commands:
 
 ```stata
-net install fastreshape, from("https://raw.githubusercontent.com/mdroste/stata-fastreshape/main/")
+net install fastreshape, from("https://raw.githubusercontent.com/mdroste/stata-fastreshape/master/")
 ```
 
 2. A recent version can be installed from the SSC repository with the following Stata command:
@@ -94,5 +94,5 @@ This program was inspired by [this Statalist discussion](https://www.statalist.o
 License
 ---------------------------------
 
-fastreshape is [MIT-licensed](https://github.com/mdroste/stata-fastreshape/blob/main/LICENSE).
+fastreshape is [MIT-licensed](https://github.com/mdroste/stata-fastreshape/blob/master/LICENSE).
 
